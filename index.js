@@ -64,3 +64,7 @@ function Circle(radius){
 
 let circle2 = new Circle(3);
 circle2.draw();
+
+//Constructor property
+// circle2.constructor  output=> f Object() - built in js constructor mrthod
+//circle1.constructor  output=> consctuctor function that we created above

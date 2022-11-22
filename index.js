@@ -36,3 +36,19 @@ let circle = {
 }
 
 circle.draw();
+
+//Factories
+//if we want to duplicate above circle object 10 times, it's hard to modify draw method over and over.in that case we use factory method
+//if object has at least 1 method, then define object using factory method
+
+function createCircle(radius){
+    return {
+        radius, //in ES6 if the key and the value is equal, remove value 
+        draw : function(){
+            console.log('draw');
+        }
+    }
+}
+
+const circle1 = new createCircle(1);
+circle1.draw();

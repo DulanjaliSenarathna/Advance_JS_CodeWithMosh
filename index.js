@@ -50,5 +50,17 @@ function createCircle(radius){
     }
 }
 
-const circle1 = new createCircle(1);
+const circle1 =  createCircle(1);
 circle1.draw();
+
+//Constructors
+
+function Circle(radius){
+    this.radius  = radius,
+    this.draw = function(){
+        console.log('draw');
+    }
+}
+
+let circle2 = new Circle(3);
+circle2.draw();

@@ -87,4 +87,36 @@ const Circle1 = new Function('radius',`
 
 const circle3 = new Circle1(1);
 
+//Values vs Reference type
+let x = 10;
+let y = x;
+
+x=20;
+console.log(y); //y is 10 in output, because of the x and y are independent variables , copy by value.
+
+let z = {value:20};
+
+let k = z;
+
+z.value =50;
+
+console.log(k.value); //now k =50, because k and z are pointing to the same object and , if we change one value , other variable can see the change.
+
+let number = 10;
+function increaseValue(number){
+    number++;
+}
+
+increaseValue(number)
+console.log(number);// output 10
+
+let num = {value:10};
+
+function increaseValue1(num){
+    num.value++;
+}
+
+increaseValue1(num)
+console.log(num); //output 11
+
 

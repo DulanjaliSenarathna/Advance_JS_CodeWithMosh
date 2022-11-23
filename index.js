@@ -119,4 +119,14 @@ function increaseValue1(num){
 increaseValue1(num)
 console.log(num); //output 11
 
+//Adding/removing properties
+circle1.color = {colo:'red'}; //added color property to the circle1 object using dot notation
+circle1['location'] = {x:5};//added location property to the circle1 object using brac ket notation
+
+const newProperty = 'xyz';
+circle1[newProperty] = {f:5};
+
+delete circle1.location;
+
+
 

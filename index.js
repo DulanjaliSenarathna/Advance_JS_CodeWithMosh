@@ -128,5 +128,24 @@ circle1[newProperty] = {f:5};
 
 delete circle1.location;
 
+//Enumerating properties
+
+//way 1
+for (let key in circle1){
+    //only return properties and their values
+    if(typeof circle1[key] !== 'function')
+     console.log(key, circle1[key]);
+}
+
+//way2 - only return keys as an array
+const keys = Object.keys(circle1);
+console.log(keys);
+
+//check the object has given property
+
+if('radius' in circle1)
+ console.log('circle 1 has radius');
+
+
 
 

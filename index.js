@@ -259,7 +259,7 @@ const sw = new Stopwatch();
 
 //Property Descriptors
 let person = {name : 'Dul'};
-let objectBase = Object.getPrototypeOf(person);
+let objectBase = Object.getPrototypeOf(person); //= person.__proto__
 let descriptor = Object.getOwnPropertyDescriptor(objectBase,'toString');
 console.log(descriptor);
 
@@ -272,6 +272,10 @@ Object.defineProperty(person, 'name',{
 person.name = 'Dil';
 console.log(Object.keys(person));
 delete person.name;
+
+//Constructor Prototypes - we can get prototype using Constructor.prototype
+//Ex : Circle.prototype
+
 
 
 

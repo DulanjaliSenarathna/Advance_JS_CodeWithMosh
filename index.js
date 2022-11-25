@@ -179,6 +179,38 @@ function Circle3(radius){
     }
 }
 
+//Getters / Setters (access pvt members(properties and methods) publicly )
+
+//we can access pvt members publicly in two ways
+//1. as a method calling
+
+//for this we should use method , called get 
+
+function Circle4(radius){
+    this.radius  = radius;
+
+    let defaultLocation = {x:1,y:5};//pvt members, can't access outside 
+
+    this.draw = function(){
+        console.log('draw');
+    }
+
+    Object.defineProperty(this,'defaultLocation',{
+        get: function(){
+            return defaultLocation;
+        },
+        set: function(value){
+            if(!value.x || !value.y)
+              throw new Error('Invalid Location');
+            defaultLocation = value;
+        }
+    });
+}
+
+const circle4 = new Circle4(20);
+
+
+
 
 
 

@@ -279,7 +279,7 @@ delete person.name;
 //Prototype vs Instance Members
 
 function Circle4 (radius){
-    //instance members
+    //instance members (own members)
     this.radius = radius;
 
     this.move = function (){
@@ -299,6 +299,14 @@ Circle4.prototype.toString = function(){
     return 'Circle with radius' + this.radius ;
 }
 
+// Iterating Instance and Prototype Members
+
+console.log(Object.keys(c1)); // using Object.keys(c1) only get instance (own) properties
+
+for(let key in c1){ // return all instance and prototype properties
+    console.log(key);
+}
+ // we can check property is own property or not using - c1.hasOwnProperty('radius') => output true
 
 
 

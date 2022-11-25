@@ -146,6 +146,42 @@ console.log(keys);
 if('radius' in circle1)
  console.log('circle 1 has radius');
 
+ //Abstraction
+ function Circle2(radius){
+    this.radius  = radius;
+
+    this.defaultLocation = {x:1,y:5};
+
+    this.computeOptimumLocation = function(fac){
+        //
+    }
+
+    this.draw = function(){
+        this.computeOptimumLocation(0.1);
+        console.log('draw');
+    }
+}
+
+//Private Properties and Methods 
+function Circle3(radius){
+    this.radius  = radius;
+
+    let defaultLocation = {x:1,y:5};//pvt members, can't access outside 
+
+    let computeOptimumLocation = function(fac){
+        //
+    }
+
+    this.draw = function(){
+        computeOptimumLocation(0.1); //access pvt members inside child function, (closure) no need this. keyword
+        defaultLocation; //access pvt members inside child function, (closure) no need this. keyword
+        console.log('draw');
+    }
+}
+
+
+
+
 
 
 

@@ -209,7 +209,53 @@ function Circle4(radius){
 
 const circle4 = new Circle4(20);
 
+//Exercise
 
+function Stopwatch(){
+    let startTime, endTime, running, duration = 0;
+
+    this.start = function(){
+        if (running){
+            throw Error('Stopwatch is already running');
+        }
+        else{
+            running = true;
+        }
+
+         startTime = new Date();
+    }
+
+    this.stop = function(){
+
+        if(!running){
+            throw Error('Stopwatch is not start running');
+        }
+        else{
+            running = false;
+        }
+
+        endTime = new Date();
+
+        const seconds = (endTime.getTime() - startTime.getTime())/1000;
+        duration +=seconds;
+
+    }
+
+    this.reset = function(){
+        startTime = null;
+        endTime = null;
+        running = false;
+        duration = 0;
+    }
+
+    Object.defineProperty(this,'duration',{
+        get: function(){
+            return duration;
+        }
+    });
+}
+
+const sw = new Stopwatch();
 
 
 

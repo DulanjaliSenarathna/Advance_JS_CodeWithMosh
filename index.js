@@ -257,7 +257,21 @@ function Stopwatch(){
 
 const sw = new Stopwatch();
 
+//Property Descriptors
+let person = {name : 'Dul'};
+let objectBase = Object.getPrototypeOf(person);
+let descriptor = Object.getOwnPropertyDescriptor(objectBase,'toString');
+console.log(descriptor);
 
+Object.defineProperty(person, 'name',{
+    writable: false, // when person.name = 'Dil' , still Dul is the value of the name key.
+    enumerable: false, //when,  Object.keys(person) output is [] empty array
+    configurable:false // we can't delete property
+});
+
+person.name = 'Dil';
+console.log(Object.keys(person));
+delete person.name;
 
 
 

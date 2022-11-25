@@ -276,6 +276,30 @@ delete person.name;
 //Constructor Prototypes - we can get prototype using Constructor.prototype
 //Ex : Circle.prototype
 
+//Prototype vs Instance Members
+
+function Circle4 (radius){
+    //instance members
+    this.radius = radius;
+
+    this.move = function (){
+        this.draw() // prototype members can access in instance members, also instance members can access in prototype members
+        console.log('Move');
+    }
+}
+
+//prototype members
+Circle4.prototype.draw = function(){ //prototype members can add methods
+    console.log('Draw');
+}
+
+const c1 = new Circle4(1);
+
+Circle4.prototype.toString = function(){
+    return 'Circle with radius' + this.radius ;
+}
+
+
 
 
 

@@ -85,7 +85,7 @@ extend(Circle5,Shape1);
 
 //method overriding - should be add after the exdent method. because in here resetting the prototype
 Circle5.prototype.duplicate1 = function(){
-    Shape.prototype.call(this);//call like normal method call. this means implementaion of the calling method body
+    Shape1.prototype.call(this);//call like normal method call. this means implementaion of the calling method body
     console.log('duplicate circle');
 }
 

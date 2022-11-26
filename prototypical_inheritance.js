@@ -1,9 +1,10 @@
-function Shape(){
-
+function Shape(color){
+this.color = color;
 }
 
-function Circle (radius){
-this.radius = radius;
+function Circle (radius,color){
+    Shape.call(this,color);
+    this.radius = radius;
 }
 
 Circle.prototype.draw = function(){
@@ -19,7 +20,7 @@ Circle.prototype.duplicate = function(){
 }
 
 const s = new Shape();
-const c = new Circle(2);
+const c = new Circle(2,'red');
 
 //Resetting the Constructor - whenever you reset the prototype to parent prototype, you need to reset the constructor to original 
 
@@ -27,5 +28,7 @@ const c = new Circle(2);
 
 //Circle.prototype.constructor = Circle;
 //Circle.prototype.constructor() => similar => new Circle(); - creating new object
+
+//Calling the Super Constructor - line 6
 
 

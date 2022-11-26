@@ -59,6 +59,44 @@ const sq = new Square(10);
 
 //using these 2 lines over and over is a mess. to avoid this, we can use new function to make this re-usable (line 5)
 
+//Method Overriding - override a method wrote in a parent object
+
+//think , we need to add duplicate method to circle object.
+
+function extend1(Childr,Parent) //parameters starting with capital letter, because of these are connect with constructor functions
+{
+    Childr.prototype = Object.create(Parent.prototype);
+    Childr.prototype.constructor = Childr;
+}
+
+function Shape1(){
+
+}
+
+Shape1.prototype.duplicate1 = function(){
+    console.log('duplicate1');
+}
+
+function Circle5(){
+
+}
+
+extend(Circle5,Shape1);
+
+//method overriding - should be add after the exdent method. because in here resetting the prototype
+Circle5.prototype.duplicate1 = function(){
+    Shape.prototype.call(this);//call like normal method call. this means implementaion of the calling method body
+    console.log('duplicate circle');
+}
+
+//when cc.duplicate() => output => duplicate circle. (call child method automatically).
+//but when we need to call parent object also, line 88 , now output => duplicate1 duplicate circle
+
+const cc = new Circle5();
+
+
+
+
 
 
 

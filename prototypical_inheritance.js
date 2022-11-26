@@ -85,14 +85,50 @@ extend(Circle5,Shape1);
 
 //method overriding - should be add after the exdent method. because in here resetting the prototype
 Circle5.prototype.duplicate1 = function(){
-    Shape1.prototype.call(this);//call like normal method call. this means implementaion of the calling method body
+    Shape1.prototype.duplicate1.call(this);//call like normal method call. this means implementaion of the calling method body
     console.log('duplicate circle');
+}
+
+function Square1(){
+
+}
+
+extend(Square1,Shape1);
+
+Square1.prototype.duplicate1 = function(){
+    Shape1.prototype.duplicate1.call(this);
+    console.log('duplicate square');
 }
 
 //when cc.duplicate() => output => duplicate circle. (call child method automatically).
 //but when we need to call parent object also, line 88 , now output => duplicate1 duplicate circle
 
 const cc = new Circle5();
+
+const shapes = [
+    new Circle5(),
+    new Square1()
+];
+
+//getting array of method calls outputs with OOP
+
+for(let shape of shapes){
+    shape.duplicate1();
+}
+
+//getting array of method calls outputs without OOP - this is mess when 100 of objects.
+
+for(let shape of shapes){
+    if(shape.type === 'circle5'){
+        duplicateCircle();//we need to implement this method outside
+    }else if(shape.type === 'square1'){
+        duplicateSquare();//we need to implement this method outside
+    }else{
+        duplicateShape();
+    }
+}
+
+
 
 
 

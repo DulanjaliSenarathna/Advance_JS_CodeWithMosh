@@ -120,13 +120,68 @@ for(let shape of shapes){
 
 for(let shape of shapes){
     if(shape.type === 'circle5'){
-        duplicateCircle();//we need to implement this method outside
+        //duplicateCircle();//we need to implement this method outside(comment out for avoid console error)
     }else if(shape.type === 'square1'){
-        duplicateSquare();//we need to implement this method outside
+       // duplicateSquare();//we need to implement this method outside
     }else{
-        duplicateShape();
+        //duplicateShape();
     }
 }
+
+//Mixins - compose 2 object's method together
+
+const CanEat = {
+    eat : function (){
+        console.log('Eating');
+    }
+}
+
+const CanWalk = {
+    walk : function (){
+        console.log('Walking');
+    }
+}
+
+//mixin function
+
+function mixin(target, ...sources){ //rest operator(we don't know how many arguments should we pass in this function)
+    Object.assign(target,...sources);//spread operator(we can't pass array as a argument)
+}
+
+//added above 2 objects to the new empty object
+const person = Object.assign({},CanEat,CanWalk);
+
+console.log(person);
+
+//compose using constructor
+
+function Person(){
+
+}
+
+//Object.assign(Fish.prototype,CanEat,CanSwim); instead of using this again and again, we can use function called mixin
+mixin(Person.prototype,CanEat,CanWalk);
+
+const newob = new Person();
+console.log(newob);
+
+//if we want to add new object called swim
+
+const CanSwim = {
+    swim : function(){
+        console.log('swimming');
+    }
+}
+
+function Fish(){
+
+}
+
+//Object.assign(Fish.prototype,CanEat,CanSwim); instead of using this again and again, we can use function called mixin
+mixin(Fish.prototype,CanEat,CanSwim);
+const fish = new Fish();
+console.log(fish);
+
 
 
 

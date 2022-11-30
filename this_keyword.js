@@ -93,3 +93,28 @@ const c4 = new Circle3(5);
 //c4.radius => output 5
 //c4.radius = 10 
 //c4.radius => output 10
+
+//Inheritance
+
+class Shape{
+    constructor(color){
+        this.color =  color;
+    }
+
+    move(){
+        console.log('move');
+    }
+}
+
+class Circle4 extends Shape{
+    constructor(color,radius){
+        super(color);
+        this.radius = radius;
+    }
+    draw(){
+        console.log('draw');
+    }
+}
+
+const shape = new Circle4('red',4);
+

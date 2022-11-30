@@ -182,6 +182,39 @@ mixin(Fish.prototype,CanEat,CanSwim);
 const fish = new Fish();
 console.log(fish);
 
+//Exercise
+
+function HtmlElement(){
+    this.click = function(){
+        console.log('Clicked');
+    }
+}
+
+HtmlElement.prototype.focus = function(){
+    console.log('focused');
+}
+
+function HtmlSelectElement(items = []){
+this.items = items;
+
+this.addItem = function(item){
+    this.items.push(item);
+    }
+    this.removeItems = function(item){
+        this.items.splice(this.items.indexOf(item),1);
+    }
+}
+
+HtmlSelectElement.prototype = new HtmlElement();//set the prototype of HtmlSelectElement to instance of HtmlElement
+HtmlSelectElement.prototype.constructor = HtmlSelectElement; //new HtmlSelectElement.prototype.constructor; (similar),new HtmlSelectElement() (similar).
+
+//now we can create object of HtmlSelectElement and that object.call can access HtmlElement's methods and it's prototype methods.
+
+const sv = new HtmlSelectElement();
+console.log(sv.click()); //output Clicked
+console.log(sv.focus());//output focused
+
+
 
 
 

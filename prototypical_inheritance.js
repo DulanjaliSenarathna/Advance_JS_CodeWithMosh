@@ -182,7 +182,7 @@ mixin(Fish.prototype,CanEat,CanSwim);
 const fish = new Fish();
 console.log(fish);
 
-//Exercise
+//Exercise -Prototypical Inheritance
 
 function HtmlElement(){
     this.click = function(){
@@ -200,19 +200,42 @@ this.items = items;
 this.addItem = function(item){
     this.items.push(item);
     }
+
     this.removeItems = function(item){
         this.items.splice(this.items.indexOf(item),1);
     }
-}
 
+    this.render = function(){
+        return `
+        <select>${this.items.map(item => `
+        <option>${item}</option>`).join('')}
+        </select>`;
+    }
+}
 HtmlSelectElement.prototype = new HtmlElement();//set the prototype of HtmlSelectElement to instance of HtmlElement
 HtmlSelectElement.prototype.constructor = HtmlSelectElement; //new HtmlSelectElement.prototype.constructor; (similar),new HtmlSelectElement() (similar).
 
+//Exercise - Polymorphism
+function HtmlImageElement(src){
+    this.src = src;
+
+    this.render = function(){
+        return `<img src="${this.src}"/>`;
+    }
+}
+
+HtmlImageElement.prototype = new HtmlElement();
+HtmlImageElement.prototype.constructor = HtmlImageElement;
 //now we can create object of HtmlSelectElement and that object.call can access HtmlElement's methods and it's prototype methods.
 
 const sv = new HtmlSelectElement();
 console.log(sv.click()); //output Clicked
 console.log(sv.focus());//output focused
+
+
+
+
+
 
 
 

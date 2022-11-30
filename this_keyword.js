@@ -70,3 +70,26 @@ class Circle2{
 
 const c3 = new Circle2(10);
 
+//Getters and Setters
+
+const _radius2 =  new WeakMap();
+
+class Circle3{
+    constructor(radius){
+        _radius2.set(this,radius);
+    }
+
+    get radius(){
+        return _radius2.get(this);
+    }
+
+    set radius(value){
+        if(value<=0) throw new Error('Invalid radius');
+         _radius2.set(this,value);
+    }
+}
+
+const c4 = new Circle3(5);
+//c4.radius => output 5
+//c4.radius = 10 
+//c4.radius => output 10

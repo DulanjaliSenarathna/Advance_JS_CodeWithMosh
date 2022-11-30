@@ -47,3 +47,26 @@ class Circle1{
 const c2=new Circle1(2);
 const key = Object.getOwnPropertySymbols(c2)[0];
 console.log(c2[key]);
+
+//Private Members Using WeakMaps
+const _radius1 = new WeakMap();
+const _move = new WeakMap();
+
+class Circle2{
+    constructor(radius){
+
+        _radius1.set(this,radius);
+
+        _move.set(this,()=>{
+            console.log('move',this);
+        });
+    }
+
+    draw(){
+        _move.get(this)();
+        console.log('draw');
+    }
+}
+
+const c3 = new Circle2(10);
+

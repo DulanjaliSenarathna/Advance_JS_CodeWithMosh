@@ -48,3 +48,24 @@ const Van = class{
 
 }
 
+//Static Methods - not tied to object
+class Square{
+    constructor(width){
+        this.width = width;
+    }
+
+    //instance method
+    draw(){
+
+    }
+
+    //static method
+    static parse(str){
+        const width = JSON.parse(str).width;
+        return new Square(width);
+    }
+}
+
+//static method access - Classname.methodname();
+const sq = Square.parse('{"width":1}');
+console.log(sq);

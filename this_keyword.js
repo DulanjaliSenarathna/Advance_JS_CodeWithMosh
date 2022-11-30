@@ -118,3 +118,21 @@ class Circle4 extends Shape{
 
 const shape = new Circle4('red',4);
 
+//Method Overriding - method in parent class , change it implementation in child class
+
+class Color{
+    paint(){
+        console.log('paint');
+    }
+}
+
+class Bag extends Color{
+    paint(){
+        super.paint();
+        console.log('Bag color');
+    }
+}
+
+const bg =  new Bag();
+console.log(bg.paint());//output method call in the Bag class.if you want to call parent class's paint method, you need to add super.paint(); to the child class's method
+

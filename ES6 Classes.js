@@ -69,3 +69,4 @@ class Square{
 //static method access - Classname.methodname();
 const sq = Square.parse('{"width":1}');
 console.log(sq);
+

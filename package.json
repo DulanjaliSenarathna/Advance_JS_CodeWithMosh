@@ -1,0 +1,25 @@
+{
+  "name": "Advance_JS_CodeWithMosh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "babel": "babel --presets env babelindex.js -o build/babelindex.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dulanjali-Senarathna/Advance_JS_CodeWithMosh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dulanjali-Senarathna/Advance_JS_CodeWithMosh/issues"
+  },
+  "homepage": "https://github.com/Dulanjali-Senarathna/Advance_JS_CodeWithMosh#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
